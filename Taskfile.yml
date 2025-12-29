@@ -1,0 +1,33 @@
+version: '3'
+
+tasks:
+  fmt:
+    desc: Reformat all source files
+    dir: 'string'
+    cmds:
+      - go mod tidy
+      - gofumpt -l -w .
+      - goimports -l -w .
+      - golangci-lint fmt
+
+  test:
+    desc: Run all tests
+    dir: 'string'
+    cmds:
+      - go test -count=1 ./...
+
+  update:
+    desc: Update all dependencies
+    dir: 'string'
+    deps: [fmt]
+    cmds:
+      - go get -u -t ./...
+      - go clean -modcache
+      - go mod tidy
+
+  setup:
+    desc: Setup pre-requisites on a new machine
+    dir: 'string'
+    cmds:
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - go install mvdan.cc/gofumpt@latest
