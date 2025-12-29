@@ -61,3 +61,8 @@ String manipulation functions for common template operations.
   // Output: "Status: active"
   ```
 
+## Contributing
+
+Contributions are welcome! Please ensure:
+- Ensure that all tests continue to pass: `task test`. Install [Task](https://taskfile.dev/) if not already available.
+- Please add comprehensive tests & documentation for any newly-added functions.
