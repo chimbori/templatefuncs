@@ -3,7 +3,7 @@ version: '3'
 tasks:
   fmt:
     desc: Reformat all source files
-    dir: 'string'
+    dir: 'stdfuncs'
     cmds:
       - go mod tidy
       - gofumpt -l -w .
@@ -12,13 +12,13 @@ tasks:
 
   test:
     desc: Run all tests
-    dir: 'string'
+    dir: 'stdfuncs'
     cmds:
       - go test -count=1 ./...
 
   update:
     desc: Update all dependencies
-    dir: 'string'
+    dir: 'stdfuncs'
     deps: [fmt]
     cmds:
       - go get -u -t ./...
@@ -27,7 +27,7 @@ tasks:
 
   setup:
     desc: Setup pre-requisites on a new machine
-    dir: 'string'
+    dir: 'stdfuncs'
     cmds:
       - go install golang.org/x/tools/cmd/goimports@latest
       - go install mvdan.cc/gofumpt@latest

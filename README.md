@@ -2,38 +2,37 @@
 
 A collection of useful template functions for Go’s `html/template` package.
 
-Unlike other such libraries, this is split into multiple modules so you can pick and choose which ones to add.
+Unlike other such libraries (e.g.
+[Masterminds/sprig](https://github.com/Masterminds/sprig/blob/master/go.mod)),
+this one is split into multiple modules so you can pick and choose the ones to add.
+
 Selectively importing only the modules/functions you need can help reduce the number of dependencies & resulting binary size.
 
-## Get Started
-
-### Installation
+## Installation
 
 ```bash
-# Install only the strings module
-go get go.chimbori.app/templatefuncs/string
+# stdfuncs has no dependencies beyond the stdlib.
+go get chimbori.dev/templatefuncs/stdfuncs
 ```
 
-### Usage
-
-Import the desired modules and register their function maps with your templates:
+## Usage
 
 ```go
 import (
     "html/template"
-    stringfuncs "go.chimbori.app/templatefuncs/string"
+    "chimbori.dev/templatefuncs/stdfuncs"
 )
 
-tmpl := template.New("example").Funcs(stringfuncs.FuncMap())
+tmpl := template.New("example").Funcs(stdfuncs.FuncMap())
 ```
 
-## Available Modules
+# Available Modules
 
-### `string`
+## stdfuncs
 
-String manipulation functions for common template operations.
+Functions that do not have any external dependencies beyond the Go standard library.
 
-`go get go.chimbori.app/templatefuncs/string`
+`go get chimbori.dev/templatefuncs/stdfuncs`
 
 - `replace`: Replaces all occurrences of a substring with another string.
 
@@ -61,8 +60,9 @@ String manipulation functions for common template operations.
   // Output: "Status: active"
   ```
 
-## Contributing
+# Contributing
 
-Contributions are welcome! Please ensure:
-- Ensure that all tests continue to pass: `task test`. Install [Task](https://taskfile.dev/) if not already available.
+Contributions are welcome!
+- Ensure that all tests continue to pass: Run `task test`.
+  - Install [Task](https://taskfile.dev/) if not already installed.
 - Please add comprehensive tests & documentation for any newly-added functions.

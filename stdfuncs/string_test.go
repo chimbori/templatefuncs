@@ -1,4 +1,4 @@
-package stringfuncs
+package stdfuncs
 
 import "testing"
 
