@@ -66,3 +66,11 @@ Contributions are welcome!
 - Ensure that all tests continue to pass: Run `task test`.
   - Install [Task](https://taskfile.dev/) if not already installed.
 - Please add comprehensive tests & documentation for any newly-added functions.
+
+# License
+
+Available freely under the MIT License for any use case you’d like.
+
+Inspired by and reusing portions of MIT-licensed library
+[Masterminds/sprig](https://github.com/Masterminds/sprig/),
+but not a true fork, because the API and module organization is incompatible.
