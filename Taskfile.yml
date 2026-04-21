@@ -24,6 +24,7 @@ tasks:
       - go get -u -t ./...
       - go clean -modcache
       - go mod tidy
+      - go fix ./...
 
   setup:
     desc: Setup pre-requisites on a new machine
