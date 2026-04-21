@@ -19,14 +19,14 @@ func replace(old, new, src string) string {
 }
 
 // [cat] concatenates all non-nil arguments into a single space-separated string.
-func cat(v ...interface{}) string {
+func cat(v ...any) string {
 	v = removeNilElements(v)
 	r := strings.TrimSpace(strings.Repeat("%v ", len(v)))
 	return fmt.Sprintf(r, v...)
 }
 
-func removeNilElements(v []interface{}) []interface{} {
-	newSlice := make([]interface{}, 0, len(v))
+func removeNilElements(v []any) []any {
+	newSlice := make([]any, 0, len(v))
 	for _, i := range v {
 		if i != nil {
 			newSlice = append(newSlice, i)

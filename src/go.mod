@@ -1,3 +1,3 @@
 module chimbori.dev/templatefuncs/stdfuncs
 
-go 1.25.5
+go 1.25.6
